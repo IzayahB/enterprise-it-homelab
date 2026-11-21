@@ -52,11 +52,9 @@ The main objectives of this homelab are to:
 
 *The infrastructure will be deployed progressively, with resource allocations adjusted to accommodate the available hardware.*
 
-## Network Architecture
+## Proposed Network Architecture
 
 The homelab will use separate virtual networks to isolate the simulated business infrastructure from the existing home network.
-
-## Proposed Network Architecture
 
 ![Homelab Network Diagram](planning/network-diagram.png)
 

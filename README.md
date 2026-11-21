@@ -58,6 +58,9 @@ The homelab will use separate virtual networks to isolate the simulated business
 
 ![Homelab Network Diagram](planning/network-diagram.png)
 
+vmbr0 connects to the physical Ethernet interface
+vmbr1 is an isolated virtual bridge with no physical interface attached
+
 ### Proposed Network Configuration
 
 | Network | Purpose | Addressing |

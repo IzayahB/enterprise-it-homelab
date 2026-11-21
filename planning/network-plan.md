@@ -12,4 +12,5 @@ Virtual bridge: vmbr1 (isolated)
 
 Planned AD domain: ad.apex.test
 
+DCO01 will eventually provide DHCP services to the users on vmbr1, rather than the home router
 (These are the proposed configurations, not yet deployed)

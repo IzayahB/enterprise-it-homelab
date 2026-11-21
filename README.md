@@ -56,6 +56,10 @@ The main objectives of this homelab are to:
 
 The homelab will use separate virtual networks to isolate the simulated business infrastructure from the existing home network.
 
+## Proposed Network Architecture
+
+![Homelab Network Diagram](planning/network-diagram.png)
+
 ### Proposed Network Configuration
 
 | Network | Purpose | Addressing |

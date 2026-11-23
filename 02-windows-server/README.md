@@ -86,11 +86,11 @@ DC01 is configured to use its own address for DNS in preparation for the install
 
 ## Screenshots
 
-Add screenshots showing:
+![DC01 Virtual Hardware](screenshots/dc01-hardware.png)
 
-- DC01 virtual hardware configuration in Proxmox.
-- Windows Server 2025 desktop or Server Manager.
-- Windows network configuration or `ipconfig /all` output.
+![Windows Server Desktop](screenshots/windows-server.png)
+
+![Static IP Configuration](screenshots/static-ip.png)
 
 ## Skills Developed
 
@@ -116,3 +116,4 @@ Active Directory Domain Services has not yet been installed.
 - [ ] Promote DC01 to a domain controller.
 - [ ] Create the `ad.apex.test` domain.
 - [ ] Verify Active Directory and DNS functionality.
+

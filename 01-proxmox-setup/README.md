@@ -10,15 +10,13 @@ a virtual enterprise IT environment.
 - Storage: SSD
 - Hypervisor: Proxmox VE 9.2.2
 
+Storage Verification: Verified that Proxmox's LVM-Thin storage pool provides 374.54 GB of capacity. Selected thin-provisioned virtual disks to improve storage efficiency and accommodate multiple virtual machines.
+
 ## Completed Tasks
 - [x] Installed Proxmox VE
 - [x] Configured management networking
 - [x] Configured software repositories and updates
 - [x] Created isolated Linux bridge vmbr1
-
-## Documentation
-Detailed setup notes, screenshots, and verification
-results will be added below.
 
 ## Next Steps
 - Upload Windows Server 2025 ISO

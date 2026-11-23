@@ -23,3 +23,14 @@ results will be added below.
 ## Next Steps
 - Upload Windows Server 2025 ISO
 - Create the first virtual machine (DC01)
+
+## Configuration Screenshots
+
+### Proxmox Dashboard
+![Proxmox Dashboard](screenshots/proxmox-dashboard.png)
+
+### Virtual Network Configuration
+![Proxmox Network Bridges](screenshots/network-bridges.png)
+
+### Software Repositories
+![Proxmox Repositories](screenshots/repositories.png)

@@ -18,7 +18,7 @@ This is an independent learning exercise covering Linux containers, VPN connecti
 | Remote access software | Tailscale |
 | Proposed gateway | Debian LXC container `ts01`, CT ID `101`, attached to `vmbr0` |
 
-> **Evidence note:** The user reported that Proxmox access was working after an initial connection error. The exact live container settings, advertised routes, access policies, and off-site connectivity have not yet been independently verified. Entries below distinguish the intended design from the confirmed result.
+> **Evidence note:** The operator confirmed successfully loading the Proxmox web UI on a laptop while connected to a phone's mobile hotspot rather than the farm's Starlink network. The exact live container settings, advertised routes, and access policies have not yet been independently inspected. Entries below distinguish the intended design from the confirmed result.
 
 ```mermaid
 flowchart TD
@@ -68,7 +68,7 @@ The following were the planned stages of deployment. Mark each as verified again
 - [ ] Confirm `192.168.1.171/32` is advertised and approved.
 - [ ] Review access policies and verify they restrict who can reach Proxmox.
 - [ ] Enable automatic startup of the container.
-- [ ] Test from a **different** network, such as a mobile hotspot.
+- [x] Test from a **different** network (phone hotspot): Proxmox UI reached successfully, as confirmed by the operator.
 
 ### Useful verification commands
 
@@ -106,12 +106,12 @@ These are diagnostic commands; inspect their output rather than assuming any par
 | Check | Status |
 | --- | --- |
 | Proxmox web interface can be reached | Reported working |
-| VPN works from outside Starlink Wi-Fi | Not yet documented |
+| VPN works from outside Starlink Wi-Fi | **Passed — operator accessed Proxmox UI from phone hotspot** |
 | Route approval and scope | Not yet documented |
 | Tailscale policy restrictions | Not yet documented |
 | Automatic startup after host reboot | Not yet documented |
 
-**Suggested off-site acceptance test:** Disconnect the laptop from Starlink Wi-Fi, connect to a phone hotspot, connect Tailscale, then open `https://192.168.1.171:8006`. Verify that you can log in and open the DC01 console. Do not forward port 8006 publicly.
+**Completed off-network acceptance test (reported):** The operator connected the laptop through a phone hotspot instead of the farm's Starlink Wi-Fi and could still reach the Proxmox web UI. This confirms off-LAN web access in that test. Login functionality and the DC01 console were not separately reported as tested on the hotspot. Do not forward port 8006 publicly.
 
 ## Screenshots to add
 
@@ -139,7 +139,7 @@ Linux containers, VPN administration, private IP addressing, host routes, networ
 ## Next steps
 
 - [ ] Record the precise configuration actually deployed.
-- [ ] Verify remote access from another network.
+- [x] Verify that Proxmox UI is reachable from another network (phone hotspot).
 - [ ] Review access restrictions and persistent service startup.
 - [ ] Add authentic screenshots and a short test log.
 

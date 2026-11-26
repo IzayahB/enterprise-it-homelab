@@ -178,7 +178,7 @@ The project is intended to develop experience with the following technologies:
 - Proxmox VE installed with isolated `vmbr1` network.
 - Windows Server 2025 VM `DC01` configured at `10.10.10.10/24`.
 - Active Directory forest/domain `ad.apex.test` created; basic DNS and SRV checks passed.
-- Tailscale-based access to Proxmox reported working. Off-network routing/security verification is documented as pending in the remote-access project.
+- **Off-network Tailscale access tested:** Proxmox web UI was reachable from a laptop on a phone hotspot, outside the farm's Starlink Wi-Fi. Exact route scope, access policies, and reboot persistence remain to be verified.
 
 **Next:** Build organisational units, users, groups and client join testing. The Windows Server evaluation's activation and security updates also require planned controlled internet access.
 

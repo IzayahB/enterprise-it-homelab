@@ -35,7 +35,7 @@ The main objectives of this homelab are to:
 | Processor | Intel Core i5-10400 (6 cores / 12 threads) |
 | Memory | 16 GB RAM |
 | Storage | SSD |
-| Hypervisor | Proxmox VE (planned) |
+| Hypervisor | Proxmox VE 9.2.2 (deployed) |
 | Management workstation | Main PC running Windows and Ubuntu |
 
 ### Planned Virtual Infrastructure
@@ -58,14 +58,14 @@ The homelab will use separate virtual networks to isolate the simulated business
 
 ![Homelab Network Diagram](planning/network-diagram.png)
 
-vmbr0 connects to the physical Ethernet interface
-vmbr1 is an isolated virtual bridge with no physical interface attached
+- `vmbr0` connects to the physical Ethernet interface.
+- `vmbr1` is an isolated virtual bridge with no physical interface attached.
 
 ### Proposed Network Configuration
 
 | Network | Purpose | Addressing |
 |---|---|---|
-| Management Network (`vmbr0`) | Proxmox administration and home network connectivity | Determined during installation |
+| Management Network (`vmbr0`) | Proxmox administration and farm LAN connectivity | `192.168.1.171/24` (current location) |
 | Enterprise Lab (`vmbr1`) | Isolated business infrastructure | `10.10.10.0/24` |
 
 ### Planned Enterprise Systems
@@ -79,23 +79,24 @@ vmbr1 is an isolated virtual bridge with no physical interface attached
 
 The network will be designed to support safe testing of enterprise services without interfering with the household network.
 
-*A network architecture diagram will be added once the environment has been deployed.*
+*The diagram shows the planned infrastructure. The Proxmox host, `vmbr1`, and `DC01` have since been deployed; other VMs are planned.*
 
 ## Project Roadmap
 
 ### Phase 1 — Proxmox and Virtualisation
 
-- [ ] Install Proxmox VE on the dedicated server.
-- [ ] Configure Proxmox management access.
-- [ ] Configure virtual bridges and isolated networking.
-- [ ] Create and configure the initial virtual machines.
+- [x] Install Proxmox VE on the dedicated server.
+- [x] Configure Proxmox management access.
+- [x] Configure virtual bridges and isolated networking.
+- [x] Create and configure the initial Windows Server VM (`DC01`).
 - [ ] Learn VM snapshots, storage, and resource management.
 
 ### Phase 2 — Windows Server and Active Directory
 
-- [ ] Install Windows Server 2025.
-- [ ] Configure Active Directory Domain Services.
-- [ ] Configure DNS and DHCP.
+- [x] Install Windows Server 2025.
+- [x] Install AD DS and promote `DC01` for `ad.apex.test`.
+- [x] Configure and verify Active Directory DNS (A, PTR, and SRV records).
+- [ ] Configure DHCP for the isolated lab.
 - [ ] Create organisational units for fictional departments.
 - [ ] Create and manage users, computers, and security groups.
 - [ ] Join Windows 11 to the domain.
@@ -163,13 +164,23 @@ The project is intended to develop experience with the following technologies:
 
 **Security:** Access control, network segmentation, authentication, system monitoring
 
+## Project Documentation
+
+- [01 — Proxmox Setup](01-proxmox-setup/README.md)
+- [02 — Windows Server Deployment](02-windows-server/README.md)
+- [03 — Active Directory and DNS](03-active-directory/README.md)
+- [04 — Tailscale Remote Access](04-remote-access-tailscale/README.md)
+
 ## Current Project Status
 
-**Status:** Planning and preparation
+**Status:** Active development — Proxmox and DC01 deployed.
 
-The initial project scope, hardware requirements, and proposed network architecture have been identified.
+- Proxmox VE installed with isolated `vmbr1` network.
+- Windows Server 2025 VM `DC01` configured at `10.10.10.10/24`.
+- Active Directory forest/domain `ad.apex.test` created; basic DNS and SRV checks passed.
+- Tailscale-based access to Proxmox reported working. Off-network routing/security verification is documented as pending in the remote-access project.
 
-The next stage is to install Proxmox VE on the dedicated server and begin deploying the virtual infrastructure.
+**Next:** Build organisational units, users, groups and client join testing. The Windows Server evaluation's activation and security updates also require planned controlled internet access.
 
 ## Future Improvements
 
@@ -180,7 +191,7 @@ Potential future expansions include:
 - Automated backup and recovery procedures.
 - Additional Windows and Linux servers.
 - Further PowerShell and Bash automation.
-- Remote administration using secure VPN connectivity.
+- Further restrictions and verification for Tailscale remote administration.
 
 ## Disclaimer
 
